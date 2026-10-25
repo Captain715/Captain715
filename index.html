@@ -1,45 +1,552 @@
-
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAPTAIN 715</title>
-    <style>
-        body {
-            margin: 0;
-            background: #080808;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        header { padding: 70px 15px; }
-        h1 {
-            font-size: 42px;
-            letter-spacing: 5px;
-        }
-        h1 span { color: #00e5ff; }
-        p { color: #aaa; }
-        .box {
-            margin: 20px;
-            padding: 25px;
-            border: 1px solid #222;
-            border-radius: 12px;
-        }
-        footer {
-            padding: 30px;
-            color: #666;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#03070c">
+<meta name="description"
+content="CAPTAIN 715 — The ocean is my world, strategy is my weapon, and Captain is the destination.">
+
+<title>CAPTAIN 715 | Beyond the Ordinary</title>
+
+<style>
+:root {
+    --bg: #03070c;
+    --panel: rgba(7, 19, 29, 0.82);
+    --cyan: #00eaff;
+    --blue: #087bff;
+    --text: #eafaff;
+    --muted: #8da7b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Courier New", monospace;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(ellipse at 50% 15%,
+        #06354a 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 70%,
+        #041d3b 0%, transparent 40%),
+        #03070c;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.16;
+    background-image:
+        linear-gradient(rgba(0,234,255,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,234,255,.12) 1px, transparent 1px);
+    background-size: 45px 45px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 7%;
+    background: rgba(3, 7, 12, 0.92);
+    border-bottom: 1px solid rgba(0,234,255,.2);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 11px;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+.hero {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px 20px;
+    position: relative;
+}
+
+.status {
+    color: var(--cyan);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.status::before {
+    content: "● ";
+    animation: blink 1.5s infinite;
+}
+
+h1 {
+    font-size: clamp(43px, 10vw, 90px);
+    line-height: 1.15;
+    letter-spacing: 5px;
+    text-shadow: 0 0 35px rgba(0,234,255,.2);
+}
+
+h1 span {
+    color: var(--cyan);
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.quote {
+    margin-top: 35px;
+    max-width: 650px;
+    font-size: clamp(15px, 3vw, 21px);
+    color: #d7faff;
+}
+
+.quote strong {
+    color: var(--cyan);
+    font-weight: normal;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 12px 23px;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    letter-spacing: 2px;
+    font-size: 11px;
+    transition: .3s;
+}
+
+.button:hover {
+    background: var(--cyan);
+    color: #020609;
+    box-shadow: 0 0 25px rgba(0,234,255,.3);
+}
+
+.scroll {
+    position: absolute;
+    bottom: 25px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+section {
+    padding: 75px 8%;
+    max-width: 1150px;
+    margin: auto;
+    scroll-margin-top: 75px;
+}
+
+.section-label {
+    color: var(--cyan);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: clamp(25px, 5vw, 38px);
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+}
+
+.intro {
+    max-width: 760px;
+    color: #b3c6d2;
+    font-size: 14px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.card {
+    padding: 25px;
+    background: var(--panel);
+    border: 1px solid rgba(0,234,255,.17);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+    box-shadow: 0 8px 30px rgba(0,234,255,.06);
+}
+
+.card .number {
+    color: var(--cyan);
+    font-size: 12px;
+}
+
+.card h3 {
+    margin: 12px 0;
+    font-size: 17px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.terminal {
+    margin-top: 25px;
+    background: rgba(0,0,0,.55);
+    border: 1px solid rgba(0,234,255,.25);
+    overflow: hidden;
+}
+
+.terminal-head {
+    padding: 12px 18px;
+    border-bottom: 1px solid rgba(0,234,255,.2);
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.terminal-body {
+    padding: 22px;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.terminal-body p {
+    margin: 8px 0;
+}
+
+.prompt {
+    color: var(--cyan);
+}
+
+.terminal-note {
+    color: var(--muted);
+}
+
+.manifesto {
+    text-align: center;
+    padding: 55px 25px;
+    border: 1px solid rgba(0,234,255,.25);
+    background: linear-gradient(130deg,
+    rgba(0,234,255,.05), rgba(0,0,0,.15));
+}
+
+.manifesto blockquote {
+    max-width: 750px;
+    margin: auto;
+    font-size: clamp(21px, 4vw, 34px);
+    line-height: 1.6;
+}
+
+.manifesto blockquote span {
+    color: var(--cyan);
+}
+
+footer {
+    padding: 30px 15px;
+    border-top: 1px solid rgba(0,234,255,.2);
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+footer strong {
+    color: var(--cyan);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .25; }
+}
+
+@media (max-width: 520px) {
+    nav {
+        padding: 13px 5%;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .hero {
+        min-height: 82vh;
+    }
+
+    h1 {
+        letter-spacing: 2px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>CAPTAIN <span>715</span></h1>
-        <p>THE OCEAN IS MY WORLD. STRATEGY IS MY WEAPON.</p>
-    </header>
-    <div class="box">
-        <h2>WELCOME TO MY WORLD</h2>
-        <p>Think strategically. Stay unpredictable. Aim higher.</p>
+
+<nav>
+    <a class="logo" href="#home">CAPTAIN<span>715</span></a>
+
+    <div class="nav-links">
+        <a href="#identity">IDENTITY</a>
+        <a href="#mindset">MINDSET</a>
+        <a href="#ocean">THE OCEAN</a>
+        <a href="#terminal">TERMINAL</a>
     </div>
-    <footer>© 2026 CAPTAIN 715</footer>
+</nav>
+
+<header class="hero" id="home">
+    <p class="status">SYSTEM ONLINE // IDENTITY VERIFIED</p>
+
+    <h1>CAPTAIN <span>715</span></h1>
+
+    <p class="subtitle">
+        BEYOND THE ORDINARY. BEYOND THE EXPECTED.
+    </p>
+
+    <p class="quote">
+        The ocean is my <strong>world</strong>,<br>
+        strategy is my <strong>weapon</strong>,<br>
+        and Captain is the <strong>destination</strong>.
+    </p>
+
+    <a class="button" href="#identity">ENTER MY WORLD →</a>
+
+    <p class="scroll">SCROLL TO EXPLORE ↓</p>
+</header>
+
+<section id="identity">
+    <p class="section-label">// 01 — IDENTITY</p>
+    <h2>More Than a Name.</h2>
+
+    <p class="intro">
+        Captain 715 represents a mindset: curiosity, calculated
+        thinking, independence, ambition, and the desire to build
+        something meaningful. It is an identity shaped by a
+        fascination with the unknown and a preference for moving
+        with purpose rather than simply following the crowd.
+        The number 715 is the signature; the mindset is the meaning.
+    </p>
+
+    <div class="grid">
+        <article class="card">
+            <span class="number">01 / STRATEGY</span>
+            <h3>Think Before Acting</h3>
+            <p>
+                Look at the situation, understand the possibilities,
+                and make decisions with a reason behind them.
+            </p>
+        </article>
+
+        <article class="card">
+            <span class="number">02 / CURIOSITY</span>
+            <h3>Understand the Unknown</h3>
+            <p>
+                Explore technology, learn how systems work, ask
+                questions, and turn curiosity into real knowledge.
+            </p>
+        </article>
+
+        <article class="card">
+            <span class="number">03 / CREATIVITY</span>
+            <h3>Build a Signature</h3>
+            <p>
+                From dark visual aesthetics to digital creations,
+                make things that express a distinctive identity.
+            </p>
+        </article>
+
+        <article class="card">
+            <span class="number">04 / INDEPENDENCE</span>
+            <h3>Choose Your Direction</h3>
+            <p>
+                Think independently, question assumptions, and
+                decide which principles deserve your commitment.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section id="mindset">
+    <p class="section-label">// 02 — THE MINDSET</p>
+    <h2>Strategy Over Noise.</h2>
+
+    <p class="intro">
+        Not everything needs an immediate reaction. Sometimes the
+        strongest move is to observe, learn, understand the situation,
+        and act at the right moment. Unpredictability is not about
+        being careless or confusing people. It is about staying
+        thoughtful, adaptable, and difficult to define by a single
+        expectation.
+    </p>
+
+    <div class="grid">
+        <article class="card">
+            <h3>Observe.</h3>
+            <p>Notice details before making assumptions.</p>
+        </article>
+
+        <article class="card">
+            <h3>Calculate.</h3>
+            <p>Consider the consequences and possible outcomes.</p>
+        </article>
+
+        <article class="card">
+            <h3>Adapt.</h3>
+            <p>Change your approach when the situation changes.</p>
+        </article>
+
+        <article class="card">
+            <h3>Execute.</h3>
+            <p>Turn a considered decision into meaningful action.</p>
+        </article>
+    </div>
+</section>
+
+<section id="ocean">
+    <p class="section-label">// 03 — THE OCEAN</p>
+    <h2>My World Is the Unknown.</h2>
+
+    <p class="intro">
+        The ocean is more than a view. It represents depth, freedom,
+        mystery, and the power of staying steady when circumstances
+        change. Its surface can be calm while its depths remain
+        unexplored. That contrast reflects the appeal of a world
+        where there is always more to discover, understand, and master.
+    </p>
+
+    <div class="manifesto" style="margin-top:30px;">
+        <blockquote>
+            The ocean is my <span>world</span>.<br>
+            Strategy is my <span>weapon</span>.<br>
+            Captain is the <span>destination</span>.
+        </blockquote>
+    </div>
+</section>
+
+<section id="terminal">
+    <p class="section-label">// 04 — COMMAND INTERFACE</p>
+    <h2>Captain's Terminal</h2>
+
+    <p class="intro">
+        A visual tribute to technology, logical thinking,
+        cybersecurity, and the endless process of learning.
+        The hacker aesthetic here represents curiosity and
+        technical exploration—not unauthorized access.
+    </p>
+
+    <div class="terminal">
+        <div class="terminal-head">
+            CAPTAIN715@OCEAN: ~ / identity
+        </div>
+
+        <div class="terminal-body">
+            <p><span class="prompt">captain715@ocean:~$</span> whoami</p>
+            <p>Curious mind. Strategic thinker. Creative builder.</p>
+
+            <p><span class="prompt">captain715@ocean:~$</span> principles</p>
+            <p>Observe // Think // Adapt // Execute</p>
+
+            <p><span class="prompt">captain715@ocean:~$</span> mission</p>
+            <p>Learn continuously. Build meaningfully. Stay adaptable.</p>
+
+            <p><span class="prompt">captain715@ocean:~$</span> status</p>
+            <p>Learning in progress.</p>
+
+            <p class="terminal-note">
+                // The next level is earned through knowledge and action.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="manifesto">
+        <p class="section-label">// FINAL TRANSMISSION</p>
+
+        <blockquote>
+            I do not need to be the loudest in the room.
+            I want my <span>thinking, work, and decisions</span>
+            to speak for themselves.
+        </blockquote>
+
+        <p style="color:var(--muted); margin-top:24px;">
+            THIS IS CAPTAIN 715.
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p><strong>CAPTAIN 715</strong> // THE OCEAN IS MY WORLD.</p>
+    <p style="margin-top:8px;">© 2026 Captain 715. Built with purpose.</p>
+</footer>
+
 </body>
 </html>
