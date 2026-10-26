@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050809">
+<meta name="description" content="CAPTAIN 715 — The Black Tide. The ocean is my world. Strategy is my weapon. Captain is the destination.">
+<title>CAPTAIN 715 — THE BLACK TIDE</title>
+<style>
+:root{--gold:#c8a875;--gold2:#e2c99b;--ink:#050809;--muted:#aaa9a2;--line:rgba(205,174,119,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}body{margin:0;background:var(--ink);color:#eee9df;font-family:Georgia,"Times New Roman",serif;letter-spacing:.035em}a{color:inherit;text-decoration:none}button,input{font:inherit}
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#05090b url("black-tide-hero.png") center center/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,5,7,.46),rgba(0,4,6,.1) 48%,rgba(0,4,6,.24)),linear-gradient(0deg,rgba(0,4,6,.28),transparent 24%,rgba(0,4,6,.2));pointer-events:none}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;align-items:center;gap:30px;padding:25px 3.2vw;font-size:10px;letter-spacing:.19em;text-transform:uppercase;background:linear-gradient(#020607a8,transparent)}
+.mark{color:var(--gold);font-size:27px;min-width:38px}.nav{display:flex;gap:clamp(12px,2.1vw,34px);align-items:center;flex-wrap:wrap}.nav a{padding:8px 0;color:#e9e4da;transition:color .2s}.nav a:hover,.nav a.active{color:var(--gold2)}.nav a.active{border-bottom:1px solid var(--gold)}
+.motto{margin-left:auto;text-align:right;font-size:9px;line-height:1.9;letter-spacing:.25em;color:#ddd7cb;white-space:nowrap}
+.hero-copy{position:relative;z-index:1;text-align:center;margin-top:7vh;max-width:90vw;text-shadow:0 2px 20px #000}.eyebrow{font-size:clamp(10px,1vw,14px);letter-spacing:.36em;color:#eee2cc;margin-bottom:27px}.hero h1{font-weight:400;font-size:clamp(42px,6.2vw,88px);letter-spacing:.12em;margin:0;color:var(--gold2);line-height:1.1}.ornament{display:flex;justify-content:center;align-items:center;gap:14px;margin:18px 0 17px;color:var(--gold);font-size:24px}.ornament:before,.ornament:after{content:"";height:1px;width:54px;background:var(--gold)}.creed{font-size:clamp(13px,1.2vw,17px);line-height:1.65;font-style:italic;letter-spacing:.09em;margin:0 0 38px}.enter{display:inline-flex;align-items:center;gap:19px;border:1px solid var(--gold);padding:17px 27px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;background:#03060765;transition:.25s}.enter:hover{background:#b9945b24;box-shadow:0 0 28px #c8a87525}.enter span{color:var(--gold2)}
+.hero-bottom{position:absolute;z-index:2;bottom:25px;left:3.2vw;right:3.2vw;display:flex;justify-content:space-between;align-items:end;text-transform:uppercase;font-size:9px;letter-spacing:.28em;color:#d7d1c6}.bottom-quote{line-height:1.7}.signature{font-size:9px;border-bottom:1px solid var(--gold);padding-bottom:7px;letter-spacing:.2em}.down{position:absolute;bottom:25px;left:50%;color:var(--gold);font-size:20px}
+section.content{padding:105px max(7vw,22px);position:relative;background:radial-gradient(ellipse at 50% 0%,#152024 0%,#080d0f 42%,#050809 80%);border-top:1px solid #ffffff0d}.section-head{text-align:center;margin:0 auto 46px;max-width:750px}.kicker{color:var(--gold);font-size:10px;letter-spacing:.32em;text-transform:uppercase}.section-head h2{font-size:clamp(30px,4.5vw,56px);font-weight:400;letter-spacing:.08em;margin:15px 0;color:var(--gold2)}.section-head p{color:#aaa9a2;line-height:1.8;font-size:15px}.principle{max-width:900px;margin:auto;text-align:center;padding:45px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.principle strong{font-size:clamp(28px,5vw,62px);font-weight:400;letter-spacing:.12em;color:#e0c69a}.principle p{color:#b8b5ac;line-height:1.8}
+.rule-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1100px;margin:auto}.rule{padding:26px 24px;border:1px solid var(--line);background:#0a1012b8;min-height:140px}.rule .num{font-size:11px;color:var(--gold);letter-spacing:.2em}.rule h3{font-weight:400;font-size:20px;color:#e1d0b1;margin:14px 0 8px}.rule p{font-size:13px;color:#aaa9a2;line-height:1.75;margin:0}
+.quote-panel{max-width:900px;margin:auto;border-left:1px solid var(--gold);padding:6px 0 6px 30px}.quote-panel h3{font-weight:400;font-size:clamp(22px,3vw,35px);color:var(--gold2);margin:0 0 20px}.quote-panel p{color:#b8b5ac;line-height:1.85}.pearl-panel{min-height:55vh;display:flex;align-items:end;padding:65px 7vw;background:linear-gradient(0deg,#030708 0%,#03070830 60%),url("black-tide-hero.png") center 43%/cover no-repeat;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.pearl-panel h2{font-weight:400;font-size:clamp(38px,6vw,78px);letter-spacing:.1em;color:#e0c69a;margin:0}.pearl-panel p{max-width:550px;color:#e1ddd4;line-height:1.8}
+.archive-wrap{max-width:850px;margin:auto}.archive-item{border-bottom:1px solid var(--line)}.archive-toggle{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;background:none;border:0;color:#e0d2b8;padding:21px 4px;cursor:pointer;letter-spacing:.12em}.archive-body{display:none;padding:0 4px 23px;color:#aaa9a2;line-height:1.8;font-size:14px}.archive-item.open .archive-body{display:block}.archive-toggle span:last-child{color:var(--gold)}
+.terminal-section{background:#030506!important}.terminal{max-width:1000px;margin:auto;border:1px solid #5b4a31;background:#050808;box-shadow:0 20px 80px #0009}.terminal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 17px;border-bottom:1px solid #403624;background:#0b0d0d;color:#c9b28b;font:11px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em}.lights{display:flex;gap:6px}.lights i{width:7px;height:7px;border-radius:50%;background:#6d5b3d;display:block}.terminal-output{height:340px;overflow:auto;padding:20px;font:13px/1.75 ui-monospace,SFMono-Regular,Consolas,monospace;color:#c5c6bd;white-space:pre-wrap;overflow-wrap:anywhere}.outline{color:#d6b77c}.dim{color:#7d827c}.good{color:#c4cda9}.bad{color:#c68c78}.terminal-form{display:flex;gap:10px;align-items:center;padding:13px 17px;border-top:1px solid #282b28;font:13px ui-monospace,SFMono-Regular,Consolas,monospace}.prompt{color:#d5b779;white-space:nowrap}.terminal-form input{min-width:0;flex:1;background:transparent;border:0;outline:0;color:#eee9df;font:inherit}.terminal-form button{border:1px solid #6b5838;background:#17140f;color:#d8c294;padding:7px 12px;cursor:pointer;font:inherit}.terminal-hint{padding:0 20px 16px;color:#72766f;font:11px ui-monospace,SFMono-Regular,Consolas,monospace}.footer{padding:26px 5vw;text-align:center;border-top:1px solid var(--line);color:#777970;font-size:9px;letter-spacing:.22em;text-transform:uppercase}.footer b{display:block;color:var(--gold);font-weight:400;margin-top:10px}
+@media(max-width:760px){.topbar{padding:15px 16px;gap:12px;align-items:flex-start}.mark{font-size:21px;min-width:25px}.nav{gap:7px 13px;max-width:67%;font-size:8px}.motto{display:none}.hero{background-position:54% center}.hero-copy{margin-top:9vh}.hero h1{letter-spacing:.07em}.hero-bottom{left:16px;right:16px;bottom:20px}.bottom-quote{font-size:8px}.signature{font-size:8px}.down{display:none}section.content{padding:75px 20px}.rule-grid{grid-template-columns:1fr}.rule{min-height:auto}.pearl-panel{min-height:43vh;background-position:54% center;padding:40px 22px}.terminal-output{height:300px;padding:14px;font-size:12px}.terminal-form{padding:11px}.prompt{font-size:11px}.terminal-form button{padding:7px}.enter{padding:14px 18px}}
+</style>
+</head>
+<body>
+<header class="hero" id="home">
+  <nav class="topbar" aria-label="Main navigation">
+    <div class="mark" aria-hidden="true">☸</div>
+    <div class="nav">
+      <a class="active" href="#home">Home</a><a href="#principles">Principles</a><a href="#rules">Rules</a><a href="#shelby">Shelby Code</a><a href="#pearl">The Black Pearl</a><a href="#archive">Archive</a><a href="#terminal-section">Terminal</a>
+    </div>
+    <div class="motto">THE OCEAN IS MY WORLD<br>STRATEGY IS MY WEAPON<br>CAPTAIN IS THE DESTINATION</div>
+  </nav>
+  <div class="hero-copy">
+    <div class="eyebrow">THE BLACK TIDE</div>
+    <h1>CAPTAIN 715</h1>
+    <div class="ornament">☸</div>
+    <p class="creed">The ocean is my world.<br>Strategy is my weapon.<br>Captain is the destination.</p>
+    <a class="enter" href="#principles">ENTER MY WORLD <span>›</span></a>
+  </div>
+  <div class="hero-bottom"><div class="bottom-quote">SOME PEOPLE FOLLOW PATHS.<br>I CHOOSE OCEANS.</div><div class="signature">CAPTAIN 715</div></div>
+  <div class="down">⌄</div>
+</header>
+
+<section class="content" id="principles">
+  <div class="section-head"><div class="kicker">01 / THE PRINCIPLE</div><h2>ONE PRINCIPLE.</h2><p>Not a list of slogans. One principle at the centre of the identity.</p></div>
+  <div class="principle"><strong>BE UNPREDICTABLE.</strong><p>Keep your next move yours to choose. Observe, think, and act with intention—without needing to announce every plan.</p></div>
+</section>
+
+<section class="content" id="rules">
+  <div class="section-head"><div class="kicker">02 / THE CODE</div><h2>MY RULES</h2><p>The ocean is not a decoration here. It is the world behind the code.</p></div>
+  <div class="rule-grid">
+    <article class="rule"><div class="num">RULE 01</div><h3>The ocean is my world.</h3><p>Keep your own horizon. Choose your course rather than living by someone else's map.</p></article>
+    <article class="rule"><div class="num">RULE 02</div><h3>Strategy is my weapon.</h3><p>Think ahead. Consider the consequences before making a move.</p></article>
+    <article class="rule"><div class="num">RULE 03</div><h3>Be unpredictable.</h3><p>Do not make every intention obvious. Let actions speak when the time is right.</p></article>
+    <article class="rule"><div class="num">RULE 04</div><h3>Observe first.</h3><p>Pay attention before reaching a conclusion. Details matter.</p></article>
+    <article class="rule"><div class="num">RULE 05</div><h3>Keep your course.</h3><p>Outside noise does not have to decide your direction.</p></article>
+    <article class="rule"><div class="num">RULE 06</div><h3>Captain is the destination.</h3><p>A destination is reached through choices, preparation, and steady action.</p></article>
+  </div>
+</section>
+
+<section class="content" id="shelby">
+  <div class="section-head"><div class="kicker">03 / STRATEGY & COMPOSURE</div><h2>THE SHELBY CODE</h2><p>Principles inspired by Thomas Shelby's fictional strategic presence—not quotations attributed to him.</p></div>
+  <div class="quote-panel">
+    <h3>Composure. Observation. Timing.</h3>
+    <p><span class="outline">01 — COMPOSURE</span><br>Do not let every emotion choose your response.</p>
+    <p><span class="outline">02 — OBSERVATION</span><br>Notice what is happening before deciding what it means.</p>
+    <p><span class="outline">03 — STRATEGY</span><br>Consider more than the first move—and think about its consequences.</p>
+    <p><span class="outline">04 — PRIVACY</span><br>Not every plan needs an audience.</p>
+    <p><span class="outline">05 — SELF-CONTROL</span><br>Focus on what you can influence. Strength is not the same as intimidation.</p>
+  </div>
+</section>
+
+<section class="pearl-panel" id="pearl"><div><div class="kicker">04 / THE SHIP</div><h2>THE BLACK PEARL</h2><p>Dark waters. A steady course. A world of your own. The Black Tide is the atmosphere; Captain 715 is the signature.</p></div></section>
+
+<section class="content" id="archive">
+  <div class="section-head"><div class="kicker">05 / SEALED RECORDS</div><h2>THE HIDDEN ARCHIVE</h2><p>Open an entry to reveal the words inside.</p></div>
+  <div class="archive-wrap">
+    <div class="archive-item"><button class="archive-toggle"><span>ARCHIVE 715-A / THE CREED</span><span>＋</span></button><div class="archive-body">The ocean is my world.<br>Strategy is my weapon.<br>Captain is the destination.</div></div>
+    <div class="archive-item"><button class="archive-toggle"><span>ARCHIVE 715-B / THE PRINCIPLE</span><span>＋</span></button><div class="archive-body">BE UNPREDICTABLE.<br>Not reckless. Not random. Deliberate, observant, and difficult to read.</div></div>
+    <div class="archive-item"><button class="archive-toggle"><span>ARCHIVE 715-C / THE BLACK TIDE</span><span>＋</span></button><div class="archive-body">Some people follow paths. I choose oceans.</div></div>
+  </div>
+</section>
+
+<section class="content terminal-section" id="terminal-section">
+  <div class="section-head"><div class="kicker">06 / END OF THE LINE</div><h2>THE CAPTAIN'S TERMINAL</h2><p>A local, simulated command terminal. Network and scan outputs are fictional demonstrations; no real systems are scanned.</p></div>
+  <div class="terminal">
+    <div class="terminal-head"><span>CAPTAIN715@BLACK-PEARL: ~</span><span class="lights"><i></i><i></i><i></i></span></div>
+    <div class="terminal-output" id="output" aria-live="polite"><span class="outline">CAPTAIN 715 // THE BLACK TIDE TERMINAL</span>
+Secure session simulated. No external network activity.
+Type <span class="good">help</span> to list commands.
+
+<span class="dim">“The ocean is my world. Strategy is my weapon.”</span>
+</div>
+    <form class="terminal-form" id="termform"><span class="prompt">captain715@black-pearl:~$</span><input id="cmd" autocomplete="off" spellcheck="false" aria-label="Terminal command" placeholder="type a command…"><button type="submit">RUN</button></form>
+    <div class="terminal-hint">TRY: help · whoami · ocean · ship · rules · shelby · scan · ports · archives · matrix</div>
+  </div>
+</section>
+<footer class="footer">THE BLACK TIDE <b>CAPTAIN 715</b><br><br>Some people follow paths. I choose oceans.</footer>
+<script>
+const out=document.getElementById('output'), form=document.getElementById('termform'), input=document.getElementById('cmd');
+const historyList=[];let historyIndex=0, started=Date.now();
+const help=`AVAILABLE COMMANDS
+  help              list commands
+  whoami            operator identity
+  identity          identity dossier
+  715               signature
+  ocean             fictional sea report
+  ship / pearl      Black Pearl status
+  compass           navigation display
+  rules             personal code
+  strategy          strategy principles
+  shelby            Shelby-inspired code
+  scan              simulated system scan
+  ports             fictional port report
+  network           simulated network status
+  dns               fictional DNS lookup
+  trace             simulated route trace
+  firewall          simulated firewall report
+  security          local demo security status
+  status            terminal status
+  neofetch          system-style identity card
+  matrix            text visual effect
+  archives          list hidden archives
+  date              current local date and time
+  uptime            simulated uptime
+  history           this session's commands
+  fortune           random Black Tide line
+  encrypt <text>    simple character-shift demo
+  decrypt <text>    reverse the simple shift
+  hash <text>       SHA-256 hash in this browser
+  clear             clear terminal
+  exit              close simulated session`;
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function write(line='',cls=''){out.insertAdjacentHTML('beforeend',`<div class="${cls}">${esc(line)}</div>`);out.scrollTop=out.scrollHeight;}
+function run(raw){
+ const s=raw.trim(), parts=s.split(/\s+/), c=(parts[0]||'').toLowerCase(), arg=s.slice(parts[0]?.length||0).trim();
+ if(!s)return;
+ write(`captain715@black-pearl:~$ ${s}`,'outline');
+ historyList.push(s);historyIndex=historyList.length;
+ switch(c){
+ case 'help':write(help);break;
+ case 'whoami':write('CAPTAIN 715 — OPERATOR IDENTIFIED','good');write('Profile: THE BLACK TIDE');break;
+ case 'identity':write('IDENTITY DOSSIER\\nCallsign: CAPTAIN 715\\nPrinciple: BE UNPREDICTABLE\\nWorld: THE OCEAN\\nSignature: THE BLACK TIDE');break;
+ case '715':write('╔══════════════════════════════╗\\n  CAPTAIN 715\\n  THE BLACK TIDE\\n╚══════════════════════════════╝','outline');break;
+ case 'ocean':write('SEA REPORT // SIMULATION ONLY\\nVisibility: sea mist\\nSurface: heavy swell\\nSky: overcast / moon breaks\\nCourse: hold steady','good');break;
+ case 'ship':case 'pearl':write('VESSEL: THE BLACK PEARL\\nStatus: fictional display\\nLanterns: dim gold\\nSails: set\\nCommand: CAPTAIN 715','good');break;
+ case 'compass':write('N       NNE       NE\\n        ↑\\nW  ←  [ 715 ]  →  E\\n        ↓\\nS       SSW       SE\\nBearing: intentionally not connected to GPS.');break;
+ case 'rules':write('PERSONAL CODE\\n01  The ocean is my world.\\n02  Strategy is my weapon.\\n03  Be unpredictable.\\n04  Observe before deciding.\\n05  Keep your course.\\n06  Captain is the destination.');break;
+ case 'strategy':write('STRATEGY // PRINCIPLES\\nObserve. Consider consequences. Choose deliberately.\\nKeep plans private when appropriate.\\nAdapt without abandoning your values.');break;
+ case 'shelby':write('SHELBY-INSPIRED CODE\\nComposure / Observation / Timing / Privacy / Self-control\\nFictional character inspiration; not direct quotations.');break;
+ case 'scan':write('SIMULATED SCAN STARTED…\\n[OK] Local interface responding\\n[OK] Demo modules loaded\\n[INFO] 0 real hosts scanned\\n[INFO] This command does not access a network.','good');break;
+ case 'ports':write('PORT REPORT // FICTIONAL\\n22/tcp  closed  (demo)\\n80/tcp  closed  (demo)\\n443/tcp closed  (demo)\\nNo real port scan was performed.');break;
+ case 'network':write('NETWORK STATUS // SIMULATION\\nInterface: local-demo\\nExternal requests: none\\nPacket capture: inactive\\nStatus: isolated demonstration','good');break;
+ case 'dns':write('DNS LOOKUP // FICTIONAL EXAMPLE\\nblack-pearl.local → 192.0.2.715 (illustrative only)\\nNo DNS query was sent.');break;
+ case 'trace':write('TRACE ROUTE // SIMULATED\\n01  sea-gate.local  <1 ms\\n02  fog-line.local  12 ms\\n03  horizon.local   *\\nNo real route was traced.');break;
+ case 'firewall':write('FIREWALL STATUS // DEMO\\nInbound: not tested\\nOutbound: not tested\\nThis page does not configure your device firewall.');break;
+ case 'security':write('SECURITY DEMO\\n[OK] Terminal runs in browser page\\n[OK] Commands are locally simulated\\n[INFO] Do not enter passwords or secrets here.','good');break;
+ case 'status':write('SYSTEM: CAPTAIN 715 TERMINAL\\nMODE: SIMULATION\\nNETWORK: DISCONNECTED\\nTHEME: BLACK TIDE\\nSTATUS: READY','good');break;
+ case 'neofetch':write('      .---.       CAPTAIN 715\\n     /     \\      OS: Black Tide (fictional)\\n    |  715  |     Shell: browser simulation\\n     \\_____/      Theme: charcoal / weathered gold\\n                   Network: not connected','outline');break;
+ case 'matrix':{const chars='01 715 BLACK TIDE ';let lines=[];for(let i=0;i<6;i++){let row='';for(let j=0;j<36;j++)row+=chars[Math.floor(Math.random()*chars.length)];lines.push(row)}write(lines.join('\\n'),'good');break}
+ case 'archives':write('SEALED ARCHIVES\\n715-A  THE CREED\\n715-B  THE PRINCIPLE\\n715-C  THE BLACK TIDE\\nOpen these entries on the page above.');break;
+ case 'date':write(new Date().toString());break;
+ case 'uptime':write('Uptime (this page): '+Math.floor((Date.now()-started)/1000)+' seconds\\nSystem uptime is not accessible from this browser.');break;
+ case 'history':write(historyList.map((x,i)=>`${i+1}  ${x}`).join('\\n')||'No commands yet.');break;
+ case 'fortune':{const f=['The ocean is my world.','Observe the tide before choosing a course.','Be unpredictable—not careless.','Strategy is my weapon.','Some people follow paths. I choose oceans.'];write(f[Math.floor(Math.random()*f.length)],'outline');break}
+ case 'encrypt':if(!arg)write('Usage: encrypt <text>','bad');else write(arg.split('').map(ch=>String.fromCharCode(ch.charCodeAt(0)+1)).join('')+'\\nDemo only: a simple character shift, not secure encryption.');break;
+ case 'decrypt':if(!arg)write('Usage: decrypt <text>','bad');else write(arg.split('').map(ch=>String.fromCharCode(ch.charCodeAt(0)-1)).join('')+'\\nDemo only: a simple character shift, not secure encryption.');break;
+ case 'hash':if(!arg)write('Usage: hash <text>','bad');else if(!crypto.subtle)write('SHA-256 is unavailable in this browser context.','bad');else crypto.subtle.digest('SHA-256',new TextEncoder().encode(arg)).then(buf=>write([...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join(''),'good'));break;
+ case 'clear':out.innerHTML='';break;
+ case 'exit':write('Session closed. The Black Tide remains.','outline');break;
+ default:write(`command not found: ${c}\\nType "help" to list available commands.`,'bad');
+ }
+}
+form.addEventListener('submit',e=>{e.preventDefault();run(input.value);input.value='';});
+input.addEventListener('keydown',e=>{if(e.key==='ArrowUp'){e.preventDefault();historyIndex=Math.max(0,historyIndex-1);input.value=historyList[historyIndex]||''}if(e.key==='ArrowDown'){e.preventDefault();historyIndex=Math.min(historyList.length,historyIndex+1);input.value=historyList[historyIndex]||''}});
+document.querySelectorAll('.archive-toggle').forEach(b=>b.addEventListener('click',()=>{const item=b.parentElement;item.classList.toggle('open');b.querySelector('span:last-child').textContent=item.classList.contains('open')?'−':'＋'}));
+const links=[...document.querySelectorAll('.nav a')];const obs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id))}}),{rootMargin:'-35% 0px -60% 0px'});['home','principles','rules','shelby','pearl','archive','terminal-section'].forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+</script>
+</body>
+</html>
